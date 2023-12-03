@@ -1,7 +1,22 @@
 
 # User Authentication Server
 
+## Get Started:
 
+- Make sure mongodb and nodejs is installed in system.
+
+- Run following command in root of this repository for installing required node-packages:
+```
+npm i
+```
+
+
+- For starting server, run following command in root of this repository:
+```
+node index.js
+```
+
+- Debugging Logs will be written in ./logs/info.log & printed on console.
 
 
 
@@ -12,6 +27,8 @@
  - Mongodb (mongoose)
  - bcrypt
  - Postman (for APIs)
+ - Winston (for info.log)
+
 
 
 ## API Reference
