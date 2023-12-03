@@ -1,7 +1,7 @@
 
 # User Authentication Server
 
-## Get Started:
+## Geting Started:
 
 - Make sure mongodb and nodejs is installed in system.
 
