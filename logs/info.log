@@ -1,2 +1,142 @@
 info: Server is running on port 3000
 info: connected to mongo
+info: register API gets called.
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Auth Successful, Token:
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Get Users Details API gets called.
+info: UserDoc:  {"$__":{"activePaths":{"paths":{"__v":"init","_id":"init","age":"init","bio":"init","createdAt":"init","name":"init","password":"init","username":"init"},"states":{"default":{},"init":{"__v":true,"_id":true,"age":true,"bio":true,"createdAt":true,"name":true,"password":true,"username":true}}},"skipId":true},"$isNew":false,"_doc":{"__v":0,"_id":"acc326cd-365e-4761-9722-b478b87c6e92","age":24,"bio":"My Bio!","createdAt":1701616587907,"name":"Manish Rana Test 1","password":"$2b$10$039O0/7P2GFygvh/f7p27edPAO7xhYy6vy3rwMBjElGZo5Yst.4UC","username":"manish1"}}
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Update User Details API gets called.
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Get Users Details API gets called.
+info: UserDoc:  {"$__":{"activePaths":{"paths":{"__v":"init","_id":"init","age":"init","bio":"init","createdAt":"init","name":"init","password":"init","username":"init"},"states":{"default":{},"init":{"__v":true,"_id":true,"age":true,"bio":true,"createdAt":true,"name":true,"password":true,"username":true}}},"skipId":true},"$isNew":false,"_doc":{"__v":0,"_id":"acc326cd-365e-4761-9722-b478b87c6e92","age":24,"bio":"My Bio!","createdAt":1701616587907,"name":"Manish Rana","password":"$2b$10$039O0/7P2GFygvh/f7p27edPAO7xhYy6vy3rwMBjElGZo5Yst.4UC","username":"manish1"}}
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Update User Details API gets called.
+error: Atleast one fields is required
+info: Server is running on port 3000
+info: connected to mongo
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Update User Details API gets called.
+error: Atleast one field is required
+info: Server is running on port 3000
+info: connected to mongo
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Update User Details API gets called.
+error: Atleast one field is required
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Update User Details API gets called.
+error: Atleast one field is required
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Update User Details API gets called.
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Get Users Details API gets called.
+info: UserDoc:  {"$__":{"activePaths":{"paths":{"__v":"init","_id":"init","age":"init","bio":"init","createdAt":"init","name":"init","password":"init","username":"init"},"states":{"default":{},"init":{"__v":true,"_id":true,"age":true,"bio":true,"createdAt":true,"name":true,"password":true,"username":true}}},"skipId":true},"$isNew":false,"_doc":{"__v":0,"_id":"acc326cd-365e-4761-9722-b478b87c6e92","age":24,"bio":"Hello World!","createdAt":1701616587907,"name":"Manish Rana","password":"$2b$10$039O0/7P2GFygvh/f7p27edPAO7xhYy6vy3rwMBjElGZo5Yst.4UC","username":"manish1"}}
+info: Auth token found Empty
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Get Users Details API gets called.
+info: UserDoc:  {"$__":{"activePaths":{"paths":{"__v":"init","_id":"init","age":"init","bio":"init","createdAt":"init","name":"init","password":"init","username":"init"},"states":{"default":{},"init":{"__v":true,"_id":true,"age":true,"bio":true,"createdAt":true,"name":true,"password":true,"username":true}}},"skipId":true},"$isNew":false,"_doc":{"__v":0,"_id":"acc326cd-365e-4761-9722-b478b87c6e92","age":24,"bio":"Hello World!","createdAt":1701616587907,"name":"Manish Rana","password":"$2b$10$039O0/7P2GFygvh/f7p27edPAO7xhYy6vy3rwMBjElGZo5Yst.4UC","username":"manish1"}}
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660003,"iat":1701616803,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Logout API gets called.
+info: Token starts with Bearer
+info: Server is running on port 3000
+info: connected to mongo
+info: Token starts with Bearer
+info: Auth token found Empty
+info: Token starts with Bearer
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Auth Successful, Token:
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660284,"iat":1701617084,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Accound under Grace Period.
+info: Auth Successful, Token:
+info: Token starts with Bearer
+error: Error: 
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660321,"iat":1701617121,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Accound under Grace Period.
+info: Auth Successful, Token:
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Auth Successful, Token:
+info: Middleware Called
+info: Rest password API gets called.
+error: username field is also required, in case of reseting password without auth-token.
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Auth Successful, Token:
+info: Middleware Called
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660442,"iat":1701617242,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Rest password API gets called.
+error: In-correct current-password entered.
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660442,"iat":1701617242,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Rest password API gets called.
+info: New and current password cannot be same.
+info: Middleware Called
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660442,"iat":1701617242,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Rest password API gets called.
+info: Password updated successfully.
+info: Login API gets called.
+error: User Password Mis-Incorrect.
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Auth Successful, Token:
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660442,"iat":1701617242,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Middleware Called
+info: Rest password API gets called.
+error: Password updated successfully.
+info: Login API gets called.
+error: User Password Mis-Incorrect.
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Accound under Grace Period.
+info: Auth Successful, Token:
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660745,"iat":1701617545,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}
+info: Token starts with Bearer
+error: Error: 
+info: Login API gets called.
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Accound under Grace Period.
+info: Auth Successful, Token:
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701660788,"iat":1701617588,"userId":"acc326cd-365e-4761-9722-b478b87c6e92"}

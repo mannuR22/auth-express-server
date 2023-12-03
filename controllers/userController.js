@@ -34,10 +34,10 @@ const updateInfo = async (req, res) => {
     const { name, username, bio, age } = req.body;
 
     if (!name && !username && !bio && !age) {
-        logger.error("Atleast one fields is required")
-        code = 400;
+        logger.error("Atleast one field is required")
+        code = 422;
         resBody = {
-            message: 'Atleast one fields is required.'
+            message: 'Atleast one field is required.'
         };
 
     } else {

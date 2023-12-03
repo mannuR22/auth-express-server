@@ -12,10 +12,10 @@ const register = async (req, res) => {
     if (!name || !username || !bio || !age || !password) {
         logger.error("All fields are required. Request Body", req.body)
         code = 400;
-        resBody = { 
-            message: 'All fields are required' 
+        resBody = {
+            message: 'All fields are required'
         };
-    }else{
+    } else {
         try {
             const user = new User();
             const userDoc = await User.find({ 'username': username });
@@ -29,9 +29,9 @@ const register = async (req, res) => {
                 user.password = bcrypt.encrypt(password);
                 user.age = age
                 user.bio = bio;
-    
+
                 await user.save();
-    
+
                 code = 201;
                 resBody = {
                     message: "User created Successfully.",
@@ -42,9 +42,9 @@ const register = async (req, res) => {
                         bio: user.bio,
                     }
                 };
-               
+
             }
-    
+
         } catch (e) {
             logger.error(e.message);
             code = 500;
@@ -56,7 +56,7 @@ const register = async (req, res) => {
     }
 
     res.status(code).json(resBody);
-    
+
 };
 
 const login = async (req, res) => {
@@ -144,7 +144,6 @@ const logout = async (req, res) => {
             resBody = {
                 message: "User logout success."
             };
-            return res.status(200).json()
         } catch (e) {
             logger.error(e.message);
             code = 409;
@@ -166,7 +165,7 @@ const passwordReset = async (req, res) => {
     let resBody = {}, code;
     if (!currentPassword || !newPassword) {
         logger.error("currentPassword and newPassword field required.")
-        code = 403;
+        code = 422;
         resBody = {
             message: "currentPassword and newPassword field required."
         };
@@ -177,12 +176,22 @@ const passwordReset = async (req, res) => {
                 const userDoc = await User.findOne({ _id: userId });
 
                 if (bcrypt.validate(currentPassword, userDoc.password)) {
-                    await User.findOneAndUpdate({ _id: userId }, { password: bcrypt.encrypt(newPassword) });
-                    logger.info("Password updated successfully.");
-                    code = 201;
-                    resBody = {
-                        message: "Password updated successfully."
+
+                    if (currentPassword === newPassword) {
+                        logger.info("New and current password cannot be same.");
+                        code = 409;
+                        resBody = {
+                            message: "new password is identical to current password, please try different combination."
+                        }
+                    } else {
+                        await User.findOneAndUpdate({ _id: userId }, { password: bcrypt.encrypt(newPassword) });
+                        logger.info("Password updated successfully.");
+                        code = 201;
+                        resBody = {
+                            message: "Password updated successfully."
+                        }
                     }
+
                 } else {
                     logger.error("In-correct current-password entered.");
                     code = 409;
@@ -201,7 +210,7 @@ const passwordReset = async (req, res) => {
         } else {
             if (!username) {
                 logger.error("username field is also required, in case of reseting password without auth-token.")
-                code = 403;
+                code = 422;
                 resBody = {
                     message: "username field is also required, in case of reseting password without auth-token."
                 }
