@@ -71,7 +71,6 @@ const deleteInfo = async (req, res) => {
     const userId = req.decoded.userId;
     const password = req.body.password;
     const currentTime = new Date();
-    // 24 * 60 * 60 * 1000
     const expiresAt = new Date(currentTime.getTime() + Number(process.env.GRACE_MINS || '5' )*60*1000);
     try {
         const filter = { '_id': userId }

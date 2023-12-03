@@ -1,0 +1,98 @@
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Token starts with Bearer
+error: Error: 
+error: username field is also required, in case of reseting password without auth-token.
+info: User Verified with username: 
+error: secretOrPrivateKey must have a value
+info: User Verified with username: 
+error: secretOrPrivateKey must have a value
+error: User Password Mis-Incorrect.
+info: User Verified with username: 
+error: secretOrPrivateKey must have a value
+info: User Verified with username: 
+error: secretOrPrivateKey must have a value
+info: User Verified with username: 
+error: secretOrPrivateKey must have a value
+info: Server is running on port 3000
+info: connected to mongo
+info: User Verified with username: 
+info: Auth doc inserted successfully.
+info: Auth Successful, Token:
+info: Middleware Called
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701643146,"iat":1701599946,"userId":"659c948e-c20a-40be-b1a1-2d4a5ba8fb14"}
+info: Password Update Successfully.
+info: Middleware Called
+info: Token starts with Bearer
+info: Token Decoded Successfully {"exp":1701643146,"iat":1701599946,"userId":"659c948e-c20a-40be-b1a1-2d4a5ba8fb14"}
+error: In-correct current-password entered.
+info: Middleware Called
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Middleware Called
+error: username field is also required, in case of reseting password without auth-token.
+info: Middleware Called
+info: In-correct current-password entered.
+info: Middleware Called
+error: Password Update Successfully.
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo
+info: Server is running on port 3000
+info: connected to mongo

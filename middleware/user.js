@@ -4,12 +4,13 @@ const Auth = require('../models/auth.js');
 
 const authenticate = async (req, res, next) => {
     let token = req.headers['x-access-token'] || req.headers['authorization']; 
-    if (token.startsWith('Bearer ')) {
+    if (token && token.startsWith('Bearer ')) {
         logger.info("Token starts with Bearer")
         token = token.slice(7, token.length);
     }
 
     if (token) {
+
         try {
             const authDoc = await Auth.findOne({'token': token});
             if(!authDoc.isValid) return res.status(401,).json({

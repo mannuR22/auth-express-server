@@ -32,14 +32,10 @@ const register = async (req, res) => {
             res.send(201, {
                 message: "User created Successfully.",
                 userInfo: {
-
-                    userId: user._id,
                     name: user.name,
                     username: user.username,
                     age: user.age,
                     bio: user.bio,
-
-
                 }
             });
         }
@@ -162,10 +158,10 @@ const passwordReset = async (req, res) => {
 
                 if (bcrypt.validate(currentPassword, userDoc.password)) {
                     await User.findOneAndUpdate({ _id: userId }, { password: bcrypt.encrypt(newPassword) });
-                    logger.info("Password Update Successfully.");
+                    logger.info("Password updated successfully.");
                     code = 201;
                     resBody = {
-                        message: "Password Update Successfully."
+                        message: "Password updated successfully."
                     }
                 } else {
                     logger.error("In-correct current-password entered.");
@@ -184,39 +180,38 @@ const passwordReset = async (req, res) => {
             }
         } else {
             if (!username) {
-                logrus.error("username field is also required, in case of reseting password without auth-token.")
+                logger.error("username field is also required, in case of reseting password without auth-token.")
                 code = 403;
                 resBody = {
                     message: "username field is also required, in case of reseting password without auth-token."
                 }
-            }
+            } else {
+                try {
+                    const userDoc = await User.findOne({ 'username': username });
 
-            try {
-                const userDoc = await User.findOne({ 'username': username });
-
-                if (bcrypt.validate(currentPassword, userDoc.password)) {
-                    await User.findOneAndUpdate({ 'username': username }, { password: bcrypt.encrypt(newPassword) });
-                    logger.error("Password Update Successfully.");
-                    code = 201;
-                    resBody = {
-                        message: "Password Update Successfully."
-                    };
-                } else {
-                    logger.info("In-correct current-password entered.");
+                    if (bcrypt.validate(currentPassword, userDoc.password)) {
+                        await User.findOneAndUpdate({ 'username': username }, { password: bcrypt.encrypt(newPassword) });
+                        logger.error("Password updated successfully.");
+                        code = 201;
+                        resBody = {
+                            message: "Password updated successfully."
+                        };
+                    } else {
+                        logger.info("In-correct current-password entered.");
+                        code = 409;
+                        resBody = {
+                            message: "Incorrect current-Password entered."
+                        };
+                    }
+                } catch (e) {
+                    logger.error(e.message)
                     code = 409;
                     resBody = {
-                        message: "Incorrect current-Password entered."
-                    };
-                }
-            } catch (e) {
-                logger.error(e.message)
-                code = 409;
-                resBody = {
-                    message: "user doesnt exist with username.",
-                    error: e.message,
+                        message: "user doesnt exist with username.",
+                        error: e.message,
+                    }
                 }
             }
-
         }
     }
 
