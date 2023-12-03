@@ -4,11 +4,12 @@ const bcrypt = require('../utils/bcrypt');
 const uuid = require('uuid4');
 const auth = require('../models/auth');
 const getDetails = async (req, res) => {
-
+    logger.info("Get Users Details API gets called.")
     try {
         const userDoc = await User.findOne({ '_id': req.decoded.userId });
         logger.info("UserDoc: ", userDoc)
-        return res.status(200).json({
+        code = 200;
+        resBody = {
             message: "User info fetched successfully.",
             user: {
                 name: userDoc.name,
@@ -16,54 +17,76 @@ const getDetails = async (req, res) => {
                 bio: userDoc.bio,
                 age: userDoc.age,
             },
-        });
+        };
     } catch (e) {
-        logger.error(e.message)
-        return res.status(500).json({ messasge: "User doesnt Exist in DB." })
+        logger.error(e.message);
+        code = 500;
+        resBody = { messasge: "User doesnt Exist in DB." };
+        return
     }
-    // Return user details
+    res.status(code).json(resBody)
 
 };
 
 const updateInfo = async (req, res) => {
+    logger.info("Update User Details API gets called.")
+    let code, resBody;
     const { name, username, bio, age } = req.body;
 
     if (!name && !username && !bio && !age) {
         logger.error("Atleast one fields is required")
-        return res.status(400).json({ error: 'Atleast one fields is required.' });
-    }
-    try {
-        const userDoc = await User.findOne({ '_id': req.decoded.userId });
-        let filter = { '_id': req.decoded.userId }
-        let update = {};
-        if (username) {
-            const userDoc = await User.find({ 'username': username });
-            if (userDoc.length > 0) {
-                return res.status(409).json({ message: "username already exist, please choose different combination." })
-            } else {
-                update.username = username;
+        code = 400;
+        resBody = {
+            message: 'Atleast one fields is required.'
+        };
+
+    } else {
+        try {
+            let filter = { '_id': req.decoded.userId }
+            let update = {};
+
+            if (username) {
+                const userDocs = await User.find({ 'username': username });
+                if (userDocs.length > 0) {
+                    code = 409;
+                    resBody = {
+                        message: "username already exist, please choose different combination.",
+                    };
+                    return res.status(code).json(resBody);
+                } else {
+                    update.username = username;
+                }
+            }
+
+            if (name) update.name = name;
+            if (bio) update.bio = bio;
+            if (age) update.age = age;
+
+
+            await User.findOneAndUpdate(filter, update);
+            let [updatedDoc] = await User.find(filter);
+            code = 200;
+            resBody = {
+                message: "User info updated successfully.",
+                updatedUser: {
+                    name: updatedDoc.name,
+                    username: updatedDoc.username,
+                    bio: updatedDoc.bio,
+                    age: updatedDoc.age,
+                },
+            };
+
+        } catch (e) {
+            logger.error(e.message);
+            code = 500;
+            resBody = {
+                message: "Error occured while updating user doc.",
+                error: e.message,
             }
         }
-
-        if (name) update.name = name;
-        if (bio) update.bio = bio;
-        if (age) update.age = age;
-
-        await User.findOneAndUpdate(filter, update);
-        let [updatedDoc] = await User.find(filter);
-        res.status(200).json({
-            message: "User info updated successfully.",
-            updatedUser: {
-                name: updatedDoc.name,
-                username: updatedDoc.username,
-                bio: updatedDoc.bio,
-                age: updatedDoc.age,
-            },
-        });
-
-    } catch (e) {
-
     }
+    res.status(code).json(resBody);
+
 };
 
 const deleteInfo = async (req, res) => {
@@ -71,16 +94,16 @@ const deleteInfo = async (req, res) => {
     const userId = req.decoded.userId;
     const password = req.body.password;
     const currentTime = new Date();
-    const expiresAt = new Date(currentTime.getTime() + Number(process.env.GRACE_MINS || '5' )*60*1000);
+    const expiresAt = new Date(currentTime.getTime() + Number(process.env.GRACE_MINS || '5') * 60 * 1000);
     try {
         const filter = { '_id': userId }
         const userDoc = await User.findOne(filter);
-        await User.findOneAndUpdate(filter, {'expiresAt': expiresAt})
-        await auth.deleteMany({userId: userId})
+        await User.findOneAndUpdate(filter, { 'expiresAt': expiresAt })
+        await auth.deleteMany({ userId: userId })
         if (bcrypt.validate(password, userDoc.password)) {
             code = 200;
             resBody = {
-                message: "There is a grace Period of "+ (process.env.GRACE_MINS || '5' ) +" mins, i.e., account will be invalidated/delted after (in GMT timezone) "+ expiresAt.toUTCString() +". In case you want to recover account try to login before grace period ends.",
+                message: "There is a grace Period of " + (process.env.GRACE_MINS || '5') + " mins, i.e., account will be invalidated/delted after (in GMT timezone) " + expiresAt.toUTCString() + ". In case you want to recover account try to login before grace period ends.",
                 gracePeriodEnds: expiresAt.getTime()
             };
         } else {

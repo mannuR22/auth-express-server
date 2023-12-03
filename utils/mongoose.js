@@ -1,7 +1,3 @@
-
-
-
-// mongoose.js
 const logger = require('./logger')
 const mongoose = require('mongoose');
 const  MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/auth-app'; // You should store your MongoDB URI in an environment variable
